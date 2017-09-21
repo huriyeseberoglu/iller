@@ -11,4 +11,7 @@
 |
 */
 
+
+
 Route::get('/', 'ListeleController@dizi');
+Route::get('/sehir/{sehir}', 'ListeleController@sehir');
