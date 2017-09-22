@@ -1,2 +1,6 @@
-<title>İL LİSTESİ</title>
-<P style="position: absolute;right: 600px;top: 5px;font-size: 50px;">İL'LER</P>
+<b style="font-size: 25px; ">İLLER</b>
+<br>
+@foreach($iller as $plaka=>$il)
+    <a href="/sehir/{{$plaka}}">{{$il}}</a>
+    <br>
+@endforeach

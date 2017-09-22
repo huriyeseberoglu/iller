@@ -6,98 +6,122 @@ use Illuminate\Http\Request;
 
 class ListeleController extends Controller
 {
-    function  dizi()  {
-        $iller = array(
-            "ADANA"          => "ADANA",
-            "ADIYAMAN"       => "ADIYAMAN",
-            "AFYONKARAHİSAR" => "AFYONKARAHİSAR",
-            "AĞRI"                => "AĞRI",
-            "AMASYA"         => "AMASYA",
-            "ANKARA"          => "ANKARA",
-            "ANTALYA"       => "ANTALYA",
-            "ARTVİN"          => "ARTVİN",
-            "AYDIN"            => "AYDIN",
-            "BALIKESİR"     => "BALIKESİR",
-            "BİLECİK"          => "BİLECİK",
-            "BİNGÖL"          => "BİNGÖL",
-            "BİTLİS"           => "BİTLİS",
-            "BOLU"              => "BOLU",
-            "BURDUR"         => "BURDUR",
-            "BURSA"            => "BURSA",
-            "ÇANAKKALE"  => "ÇANAKKALE",
-            "ÇANKIRI"        => "ÇANKIRI",
-            "ÇORUM"           => "ÇORUM",
-            "DENİZLİ"        => "DENİZLİ",
-            "DİYARBAKIR" => "DİYARBAKIR",
-            "EDİRNE"          => "EDİRNE",
-            "ELAZIĞ"          => "ELAZIĞ",
-            "ERZİNCAN"    => "ERZİNCAN",
-            "ERZURUM"      => "ERZURUM",
-            "ESKİŞEHİR"   => "ESKİŞEHİR",
-            "GAZİANTEP"  => "GAZİANTEP",
-            "GİRESUN"        => "GİRESUN",
-            "GÜMÜŞHANE" => "GÜMÜŞHANE",
-            "HAKKARİ"        => "HAKKARİ",
-            "HATAY"           => "HATAY",
-            "ISPARTA"        => "ISPARTA",
-            "MERSİN"         => "MERSİN",
-            "İSTANBUL"     => "İSTANBUL",
-            "İZMİR"            => "İZMİR",
-            "KARS"               => "KARS",
-            "KASTAMONU"      => "KASTAMONU",
-            "KAYSERİ"        => "KAYSERİ",
-            "KIRKLARELİ"  => "KIRKLARELİ",
-            "KIRŞEHİR"     => "KIRŞEHİR",
-            "KOCAELİ"       => "KOCAELİ",
-            "KONYA"          => "KONYA",
-            "KÜTAHYA"     => "KÜTAHYA",
-            "MALATYA"     => "MALATYA",
-            "MANİSA"       => "MANİSA",
-            "KAHRAMANMARAŞ"  => "KAHRAMANMARAŞ",
-            "MARDİN"       => "MARDİN",
-            "MUĞLA"         => "MUĞLA",
-            "MUŞ"              => "MUŞ",
-            "NEVŞEHİR"   => "NEVŞEHİR",
-            "NİĞDE"          => "NİĞDE",
-            "ORDU"            => "ORDU",
-            "RİZE"              => "RİZE",
-            "SAKARYA"     => "SAKARYA",
-            "SAMSUN"      => "SAMSUN",
-            "SİİRT"            => "SİİRT",
-            "SİNOP"          => "SİNOP",
-            "SİVAS"          => "SİVAS",
-            "TEKİRDAĞ"   => "TEKİRDAĞ",
-            "TOKAT"         => "TOKAT",
-            "TRABZON"    => "TRABZON",
-            "TUNCELİ"      => "TUNCELİ",
-            "ŞANLIURFA" => "ŞANLIURFA",
-            "UŞAK"             => "UŞAK",
-            "VAN"               => "VAN",
-            "YOZGAT"       => "YOZGAT",
-            "ZONGULDAK" => "ZONGULDAK",
-            "AKSARAY"     => "AKSARAY",
-            "BAYBURT"     => "BAYBURT",
-            "KARAMAN"    => "KARAMAN",
-            "KIRIKKALE"   => "KIRIKKALE",
-            "BATMAN"      => "BATMAN",
-            "ŞIRNAK"        => "ŞIRNAK",
-            "BARTIN"        => "BARTIN",
-            "ARDAHAN"   => "ARDAHAN",
-            "IĞDIR"           => "IĞDIR",
-            "YALOVA"       => "YALOVA",
-            "KARABÜK"     => "KARABÜK",
-            "KİLİS"            => "KİLİS",
-            "OSMANİYE" => "OSMANİYE",
-            "DÜZCE"         => "DÜZCE"
+    private function getSehirList()
+    {
+        return array
+        (
+            "",
+            "Adana",
+            "Adıyaman",
+            "Afyonkarahisar",
+            "Ağrı",
+            "Amasya",
+            "Ankara",
+            "Artvin",
+            "Aydın",
+            "Balıkesir",
+            "Bilecik",
+            "Bingöl",
+            "Bitlis",
+            "Bolu",
+            "Burdur",
+            "Bursa",
+            "Çanakkale",
+            "Çankırı",
+            "Çorum",
+            "Denizli",
+            "Diyarbakır",
+            "Edirne",
+            "Elazığ",
+            "Erzincan",
+            "Erzurum",
+            "Eskişehir",
+            "Gaziantep",
+            "Giresun",
+            "Gümüşhane",
+            "Hakkari",
+            "Hatay",
+            "Isparta",
+            "Mersin",
+            "İstanbul",
+            "İzmir",
+            "Kars",
+            "Kastamonu",
+            "Kayseri",
+            "Kırklareli",
+            "Kırşehir",
+            "Kocaeli",
+            "Konya",
+            "Kütahya",
+            "Malatya",
+            "Manisa",
+            "Kahramanmaraş",
+            "Mardin",
+            "Muğla",
+            "Muş",
+            "Nevşehir",
+            "Niğde",
+            "Ordu",
+            "Rize",
+            "Sakarya",
+            "Samsun",
+            "Siirt",
+            "Sinop",
+            "Sivas",
+            "Tekirdağ",
+            "Tokat",
+            "Trabzon",
+            "Tunceli",
+            "Şanlıurfa",
+            "Uşak",
+            "Van",
+            "Yozgat",
+            "Zonguldak",
+            "Aksaray",
+            "Bayburt",
+            "Karaman",
+            "Kırıkkale",
+            "Batman",
+            "Şırnak",
+            "Bartın",
+            "Ardahan",
+            "Iğdır",
+            "Yalova",
+            "Karabük",
+            "Kilis",
+            "Osmaniye",
+            "Düzce"
         );
-        foreach($iller as $deger)
-        {
-            echo '<a href="/sehir/'.$deger.'">'.$deger.'</a><br/>';
+    }
+    function index()
+    {
+        $iller = $this->getSehirList();
+        return view('welcome', ['iller' => $iller]);
+    }
 
+    public function sehir($a)
+    {
+        $iller = $this->getSehirList();
+        $sehir = 'Böyle Bir Şehir Yok';
+        if (isset($iller[$a])) 
+        {
+            $sehir = $iller[$a];
         }
+        return view('sehir', ['sehir' => $sehir, 'plaka' => $a]);
     }
-    public function sehir($a){
-        echo $a;
-        die('selam');
+
+    public function ilce($sehir, $ilce)
+    {
+
+        $iller = $this->getSehirList();
+
+        $sehirName = 'olmayan şehir';
+        if (isset($iller[$sehir]))
+        {
+            $sehirName = $iller[$sehir];
+        }
+
+        return view("ilce", ['ilce' => $ilce, 'sehir' => $sehir, 'sehirIsmi' => $sehirName]);
     }
+
 }
