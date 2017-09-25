@@ -45,13 +45,27 @@ class ListeleController extends Controller
         $iller = $this->getSehirList();
 
         $sehirName = 'olmayan şehir';
-        if (isset($iller[$sehir])) {
+        if (isset($iller[$sehir]))
+        {
             $sehirName = $iller[$sehir];
         }
 
         return view("ilce", ['ilce' => $ilce, 'sehir' => $sehir, 'sehirIsmi' => $sehirName]);
 
+    }
 
+    public function ilEkle()
+    {
+        $il = new il();
+        $il->ilisim = Input::get('ilAdi');
+        $kaydet = $il->save();
+        if($kaydet)
+        {
+            return 'Kaydedildi';
+        }else
+        {
+            return 'Kaydedilemedi';
+        }
     }
 
 }
